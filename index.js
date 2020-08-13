@@ -15,6 +15,9 @@ function search(btn) {
     </div>
   `;
   
+  const input = el("#search-input");
+  
+  input.focus();
   
   el("#search-close").onclick = function() {
     
@@ -26,7 +29,7 @@ function search(btn) {
     
   };
   
-  el("#search-input").onkeyup = function() {
+  input.onkeyup = function() {
     
     const filter = this.value.toLowerCase(),
           ul = el("#country-list"),
