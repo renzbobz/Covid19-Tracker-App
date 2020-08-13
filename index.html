@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Covid-19 Tracker</title>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    
+    <nav>
+      <h2>Covid-19 Tracker</h2>
+    </nav>
+    
+    <div class="container">
+      
+      <div id="country-data">
+        <div id="country-active" class="country-item"></div>
+        <div class="crd"></div>
+        <p id="data-updated"></p>
+        <div class="crd-close">
+          <iconify-icon data-icon="uil:angle-down" style="font-size:2em;"></iconify-icon>
+        </div>
+      </div>
+      
+      <h2>Countries <button id="search-btn" onclick="search(this);"><iconify-icon data-icon="uil:search-alt"></iconify-icon></button></h2>
+      <div id="countries-container">
+        <ul id="country-list"></ul>
+      </div>
+      
+      <p id="cc">Data from <a href="https://disease.sh" target="_blank">disease.sh</a></p>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script src="index.js"></script>
+    
+  </body>
+</html>

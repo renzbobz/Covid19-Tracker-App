@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  background: #041e24;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(255,255,255,0.1);
+  border-radius: 20px;
+}
+
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+nav {
+  text-align: center;
+  width: 100%;
+  padding: 1px;
+  background: #041e20;
+  border-bottom: 2px solid rgb(255,255,255,0.5);
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(255,255,255,0.3);
+  border-right: 1px solid #eee;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 10;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#search-input {
+  margin-top: 5%;
+  background: none;
+  padding: 5px 3px;
+  border: none;
+  color: #eee;
+  width: 100%;
+  border-bottom: 1px solid rgb(255,255,255,0.3);
+  font-size: 1.3em;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+}
+#search-input::placeholder {
+  color: #dcdede;
+}
+#search-close {
+  font-size: 1.3em;
+  color: #7be0f9;
+  outline: none;
+  top: -37px;
+  position: relative;
+  float: right;
+  background: none;
+  border: none;
+  transition: all 0.3s;
+}
+#search-close:active {
+  color: #06637a;
+  transform: scale(0.8,0.8);
+}
+#search-btn {
+  border: none;
+  font-size: 1.3em;
+  color: #7be0f9;
+  position: relative;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  float: right;
+  transition: all 0.3s;
+}
+#search-btn:active {
+  color: #06637a;
+  transform: scale(0.8,0.8);
+}
+
+
+#countries-container {
+  width: 99%;
+  max-height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 3px;
+}
+
+#country-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.country-item {
+  background: rgb(255,255,255,0.1);
+  padding: 10px 5px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3%;
+  position: relative;
+}
+
+.country-flag {
+  width: 60px;
+  height: 40px;
+  margin-left: 10%;
+}
+
+.country-name {
+  font-size: 1.3em;
+  margin-left: 10%;
+}
+
+
+.overlay {
+  width: 50px;
+  height: 50px;
+  z-index: 9;
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(0,10,10,1);
+}
+.overlay-animate {
+  animation: overlayAnimation 0.8s linear;
+}
+
+@keyframes overlayAnimation {
+  from { transform: scale(0,0); }
+  to { transform: scale(50,50); }
+}
+
+
+.fetch-failed {
+  width: 70%;
+  height: 50px;
+  border-radius: 3px;
+  padding: 3px;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+}
+.fetch-failed button {
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  color: #eee;
+  font-weight: bold;
+  outline: none;
+  background: rgb(255,255,255,0.1);
+}
+.fetch-failed button:active {
+  background: none;
+}
+
+#country-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background: rgb(0,10,10,1);
+}
+.crd {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin: 20% 5% 0 0;
+}
+.crd > div {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.crd > div > div {
+  color: #eee;
+  margin: 0 3px;
+  width: 50%;
+  padding: 0 3px;
+  border-radius: 3px;
+  /*background: rgb(255,255,255,0.1);*/
+}
+.crd > div > div > p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.crd > div > div > small {
+  position: relative;
+  bottom: 10px;
+}
+.crd-close {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: rgb(255,255,255,0.1);
+  text-align: center;
+  bottom: 0;
+}
+.title {
+  margin-top: 5%;
+  text-align: center;
+  font-weight: 400;
+  position: relative;
+  font-size: 1.3em;
+}
+.title::before {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 1px;
+  background: #eee;
+  left: 0;
+  top: 50%;
+}
+.title::after {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 1px;
+  background: #eee;
+  right: 0;
+  top: 50%;
+}
+
+.cases {
+  background: orange;
+}
+.recovered {
+  background: rgba(5,248,151,0.6);
+}
+.deaths {
+  background: red;
+}
+
+
+#country-active {
+  position: relative;
+  top: 50px;
+}
+
+img[src=""] {
+  visibility: hidden;
+}
+
+#data-updated {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 10%;
+}
+
+.slide-down {
+  animation: slideDown 0.3s linear;
+}
+
+@keyframes slideDown {
+  from { top: 0; }
+  to { top: 999px; }
+}
+
+#cc {
+  text-align: center;
+  margin: 5% 0;
+  font-size: 0.9em;
+}
+
+a {
+  color: #7be0f9;
+  text-decoration: none;
+}
+
+
+
+
+@media only screen and (max-width: 400px) {
+  .container { 
+    max-width: 330px;
+  }
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
+  }
+}
+
