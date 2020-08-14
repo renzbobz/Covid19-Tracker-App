@@ -76,6 +76,7 @@ nav {
   background: none;
   border: none;
   transition: all 0.3s;
+  cursor: pointer;
 }
 #search-close:active {
   color: #06637a;
@@ -119,6 +120,7 @@ nav {
   align-items: center;
   margin-bottom: 3%;
   position: relative;
+  cursor: pointer;
 }
 
 .country-flag {
@@ -185,10 +187,11 @@ nav {
   transform: translate(-50%, -0);
   z-index: 9;
   height: 100%;
-  width: 50%;
+  width: 400px;
   display: none;
   background: rgb(0,10,10,1);
 }
+
 .crd {
   margin: 0 auto;
   width: 100%;
@@ -225,6 +228,7 @@ nav {
   background: rgb(255,255,255,0.1);
   text-align: center;
   bottom: 0;
+  cursor: pointer;
 }
 .title {
   margin-top: 5%;
@@ -306,7 +310,7 @@ a {
 
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .container { 
     max-width: 330px;
     overflow-x: hidden;
@@ -319,4 +323,3 @@ a {
     width: 0;
   }
 }
-
