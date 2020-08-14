@@ -23,7 +23,6 @@ body {
 .container {
   max-width: 400px;
   margin: auto;
-  overflow-x: hidden;
 }
 
 nav {
@@ -310,6 +309,7 @@ a {
 @media only screen and (max-width: 400px) {
   .container { 
     max-width: 330px;
+    overflow-x: hidden;
   }
   #country-data {
     width: 100%;
