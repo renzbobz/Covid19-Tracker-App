@@ -116,6 +116,7 @@ function getCountryData(iso3, callback) {
       } else if (this.status == 404) {
         callback(null);
       } else {
+        callback(404);
         fetchFailed("country data",_ => {
           getCountryData(iso3, callback);
         });
@@ -160,8 +161,13 @@ function viewCountryData(li) {
     
     const crd = el(".crd"),
           p = el("#data-updated");
+         
+    if (data == 404) {
+      
+      crd.innerHTML = "";
+      p.textContent = "";
     
-    if (data) {
+    } else if (data) {
       
       crd.innerHTML = `
         <h3 class="title">Total</h3>
@@ -198,12 +204,15 @@ function viewCountryData(li) {
       
       p.style.marginTop = "10%";
       p.textContent = "Updated "+timeDifference(data.updated);
- 
+   
     } else {
+      
       crd.innerHTML = "";
       p.style.marginTop = "50%";
       p.textContent = "No data.";
+      
     }
+    
    
     el(".crd-close").addEventListener("click", function() {
       const ff = el(".fetch-failed");
@@ -212,6 +221,8 @@ function viewCountryData(li) {
       div.classList.add("slide-down");
       setTimeout(_ => {
         div.classList.remove("slide-down");
+        crd.innerHTML = "";
+        p.textContent = "";
         div.style.display = null;
       }, 300);
     });
